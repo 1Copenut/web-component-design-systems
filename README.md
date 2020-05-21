@@ -1,6 +1,7 @@
 # Web Components A11y
 I'm experimenting with web components for building accessible custom elements. I
-like the closer-to-the-metal experience than frameworks like React or Angular.
+like the closer-to-the-metal experience than frameworks like
+[React](https://reactjs.org) or Angular.
 Now let the record show, I am a big fan of React. This project is exploring ways
 to build components that have interop with multiple frameworks and systems.
 
