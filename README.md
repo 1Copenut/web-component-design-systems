@@ -9,3 +9,5 @@ I am using the [open-wc](https://open-wc.org) generator to scaffold my
 components quickly and accurately. Eventually I will add
 [Typescript](https://typescriptlang.org) to the mix. Once I learn how to write
 it. :)
+
+Adding a test space. To be updated later.
