@@ -1,29 +1,52 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-GB">
-<head>
-  <meta charset="utf-8">
-  <style>
-    body {
-      background: #fafafa;
-    }
-  </style>
-</head>
-<body>
-  <div id="demo"></div>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      body {
+        background: #fafafa;
+        font-family: monospace;
+      }
 
-  <script type="module">
-    import { html, render } from 'lit-html';
-    import '../first-button.js';
+      h1 {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <template>
+      <style>
+        h1 {
+          color: rebeccapurple;
+        }
+      </style>
 
-    const title = 'Hello owc World!';
-    render(
-      html`
-        <first-button .title=${title}>
-          some more light-dom
-        </first-button>
-      `,
-      document.querySelector('#demo')
-    );
-  </script>
-</body>
+      <h1>Hello world!</h1>
+    </template>
+
+    <h1>Hello world!</h1>
+
+    <cool-heading></cool-heading>
+
+    <script>
+      class CoolHeading extends HTMLElement {
+        constructor() {
+          super();
+
+          this.addEventListener('click', () => {
+            this.style.color = 'rebeccapurple';
+          });
+        }
+
+        connectedCallback() {
+          const template = document.querySelector('template');
+          const clone = document.importNode(template.content, true);
+          this.attachShadow({ mode: 'open' });
+          this.shadowRoot.appendChild(clone);
+        }
+      }
+
+      customElements.define('cool-heading', CoolHeading);
+    </script>
+  </body>
 </html>
