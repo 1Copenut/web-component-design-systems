@@ -11,9 +11,18 @@
     <script type="module">
       import { LitElement, html } from 'https://unpkg.com/lit-element?module';
 
+      const footerTemplate = html`
+        <footer>
+          Made with love by <a href="https://open-wc.org/">open-wc</a>
+        </footer>
+      `;
+
       class TodoApp extends LitElement {
         render() {
-          return html` <h1>Todo app</h1> `;
+          return html`
+            <h1>Hello world!</h1>
+            ${footerTemplate}
+          `;
         }
       }
 
