@@ -22,18 +22,40 @@
         constructor() {
           super();
           this.todos = [
-            'Learn React',
-            'Learn Redux',
-            'Learn Relay',
-            'Learn Web Components',
+            { text: 'Learn React', finished: true },
+            { text: 'Learn Redux', finished: false },
+            { text: 'Learn CSS Grid', finished: false },
+            { text: 'Learn Web Components', finished: false },
           ];
         }
+
+        _addTodo() {
+          const input = this.shadowRoot.getElementById('addTodoInput');
+          const text = input.value;
+          input.value = '';
+
+          this.todos.push({ text, finished: false });
+          this.requestUpdate();
+        }
+
         render() {
           return html`
             <h1>Todo app</h1>
 
+            <label for="addTodoInput">Add a todo</label>
+            <input id="addTodoInput" placeholder="Name" />
+            <button @click="${this._addTodo}">Add</button>
+
             <ol>
-              ${this.todos.map(todo => html` <li>${todo}</li> `)}
+              ${this.todos.map(
+                todo =>
+                  html`
+                    <li>
+                      ${todo.text} &#x2014;
+                      ${todo.finished ? 'finished' : 'unfinished'}
+                    </li>
+                  `
+              )}
             </ol>
 
             ${footerTemplate}
