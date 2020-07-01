@@ -11,9 +11,33 @@
     <script type="module">
       import { LitElement, html } from 'https://unpkg.com/lit-element?module';
 
+      const author = 'Trevor Pierce';
+      const footerTemplate = html`
+        <footer>
+          Made with love by <a href="https://open-wc.org">${author}</a>
+        </footer>
+      `;
+
       class TodoApp extends LitElement {
+        constructor() {
+          super();
+          this.todos = [
+            'Learn React',
+            'Learn Redux',
+            'Learn Relay',
+            'Learn Web Components',
+          ];
+        }
         render() {
-          return html` <h1>Todo app</h1> `;
+          return html`
+            <h1>Todo app</h1>
+
+            <ol>
+              ${this.todos.map(todo => html` <li>${todo}</li> `)}
+            </ol>
+
+            ${footerTemplate}
+          `;
         }
       }
 
