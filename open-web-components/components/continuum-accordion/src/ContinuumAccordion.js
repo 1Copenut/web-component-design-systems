@@ -13,23 +13,27 @@ export class ContinuumAccordion extends LitElement {
 
   static get properties() {
     return {
-      open: { type: Boolean },
+      open: { type: String },
     };
   }
 
-  constructor() {
+  constructor(open) {
     super();
-    this.open = false;
+    this.open = open || 'false';
 
+    // Make shadow host a landmark region
     this.setAttribute('role', 'region');
 
+    // Check if open attribute was set by the user
     if (!this.hasAttribute('open')) {
-      this.setAttribute('open', false);
+      this.setAttribute('open', this.open);
     }
   }
 
   render() {
     const { open } = this;
+
+    this.validateProperties();
 
     return html`
       <h2>
@@ -37,5 +41,19 @@ export class ContinuumAccordion extends LitElement {
       </h2>
       <div hidden><slot></slot></div>
     `;
+  }
+
+  validateProperties() {
+    this.__validateOpenAttribute();
+  }
+
+  __validateOpenAttribute() {
+    // Check if an improper string was set on the open attribute
+    if (
+      this.getAttribute('open') !== 'true' &&
+      this.getAttribute('open') !== 'false'
+    ) {
+      throw new Error('[ATTRIBUTE]: Open must be a string "true" or "false"');
+    }
   }
 }
