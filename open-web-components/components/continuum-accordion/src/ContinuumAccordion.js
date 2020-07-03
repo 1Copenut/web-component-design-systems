@@ -13,9 +13,7 @@ export class ContinuumAccordion extends LitElement {
 
   static get properties() {
     return {
-      buttonText: { type: String },
-      expandedText: { type: String },
-      hidden: { type: Boolean },
+      open: { type: Boolean },
     };
   }
 
@@ -25,14 +23,19 @@ export class ContinuumAccordion extends LitElement {
 
     this.setAttribute('role', 'region');
 
-    this.setAttribute('open', this.open);
-  }
-
-  __increment() {
-    this.counter += 1;
+    if (!this.hasAttribute('open')) {
+      this.setAttribute('open', false);
+    }
   }
 
   render() {
-    return html``;
+    const { open } = this;
+
+    return html`
+      <h2>
+        <button aria-expanded=${open}>Hello world!</button>
+      </h2>
+      <div hidden><slot></slot></div>
+    `;
   }
 }

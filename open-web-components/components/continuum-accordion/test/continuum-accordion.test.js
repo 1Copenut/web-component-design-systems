@@ -14,14 +14,14 @@ describe('ContinuumAccordion', () => {
     expect(container).to.exist;
   });
 
-  it('has a default title "Hey there" and counter 5', async () => {
-    const el = await fixture(html`
-      <continuum-accordion></continuum-accordion>
-    `);
+  // it('has a default title "Hey there" and counter 5', async () => {
+  //   const el = await fixture(html`
+  //     <continuum-accordion></continuum-accordion>
+  //   `);
 
-    expect(el.title).to.equal('Hey there');
-    expect(el.counter).to.equal(5);
-  });
+  //   expect(el.title).to.equal('Hey there');
+  //   expect(el.counter).to.equal(5);
+  // });
 
   // it('passes the a11y audit', async () => {
   //   const el = await fixture(html`

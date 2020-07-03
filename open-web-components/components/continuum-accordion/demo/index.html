@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-GB">
   <head>
+    <title>Continuum Accordion</title>
     <meta charset="utf-8" />
     <style>
       body {
@@ -15,9 +16,9 @@
       import { html, render } from 'lit-html';
       import '../continuum-accordion.js';
 
-      const text = 'Accordion mic check';
+      const open = true;
       render(
-        html` <continuum-accordion></continuum-accordion> `,
+        html` <continuum-accordion open="${open}"></continuum-accordion> `,
         document.querySelector('#demo')
       );
     </script>
