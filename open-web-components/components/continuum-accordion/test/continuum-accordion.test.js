@@ -5,7 +5,7 @@
  * https://dev.to/open-wc/testing-workflow-for-web-components-g73
  */
 
-import { html, fixture, expect, defineCE } from '@open-wc/testing';
+import { html, fixture, expect } from '@open-wc/testing';
 
 import '../continuum-accordion.js';
 import { ContinuumAccordion } from '../src/ContinuumAccordion.js';
@@ -17,20 +17,6 @@ describe('ContinuumAccordion', () => {
     expect(el).to.exist;
   });
 
-  it('CLASS: Calls validateProperties method on render', async () => {
-    let checkProps = false;
-    const tag = defineCE(
-      class extends ContinuumAccordion {
-        validateProperties() {
-          checkProps = true;
-        }
-      }
-    );
-
-    await fixture(`<${tag} />`);
-    expect(checkProps).to.be.true;
-  });
-
   it('CLASS: Sets open attribute to "false"', async () => {
     const el = new ContinuumAccordion();
 
@@ -40,7 +26,7 @@ describe('ContinuumAccordion', () => {
   it('CLASS: Throws an error on invalid open attribute', async () => {
     const el = new ContinuumAccordion('falsy');
 
-    expect(() => el.validateProperties()).to.throw(
+    expect(() => el.__validateOpenAttribute()).to.throw(
       '[ATTRIBUTE]: Open must be a string "true" or "false"'
     );
   });

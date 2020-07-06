@@ -33,7 +33,7 @@ export class ContinuumAccordion extends LitElement {
   render() {
     const { open } = this;
 
-    this.validateProperties();
+    this.__validateOpenAttribute();
 
     return html`
       <h2>
@@ -41,10 +41,6 @@ export class ContinuumAccordion extends LitElement {
       </h2>
       <div hidden><slot></slot></div>
     `;
-  }
-
-  validateProperties() {
-    this.__validateOpenAttribute();
   }
 
   __validateOpenAttribute() {

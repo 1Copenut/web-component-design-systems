@@ -10,16 +10,12 @@
     </style>
   </head>
   <body>
-    <div id="demo"></div>
+    <div id="demo">
+      <continuum-accordion open="true">
+        <h2>Hey, this is only a test!</h2>
+      </continuum-accordion>
+    </div>
 
-    <script type="module">
-      import { html, render } from 'lit-html';
-      import '../continuum-accordion.js';
-
-      render(
-        html` <continuum-accordion open="true"></continuum-accordion> `,
-        document.querySelector('#demo')
-      );
-    </script>
+    <script type="module" src="../continuum-accordion.js"></script>
   </body>
 </html>
