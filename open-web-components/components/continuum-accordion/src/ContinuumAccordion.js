@@ -17,14 +17,14 @@ export class ContinuumAccordion extends LitElement {
     };
   }
 
-  constructor(open) {
+  constructor(open = 'false') {
     super();
-    this.open = open || 'false';
+    this.open = open;
 
-    // Make shadow host a landmark region
+    /* Make shadow host a landmark region */
     this.setAttribute('role', 'region');
 
-    // Check if open attribute was set by the user
+    /* Check if open attribute was set by the user */
     if (!this.hasAttribute('open')) {
       this.setAttribute('open', this.open);
     }
@@ -33,18 +33,49 @@ export class ContinuumAccordion extends LitElement {
   render() {
     const { open } = this;
 
-    this.__validateOpenAttribute();
+    this._validateOpenAttribute();
 
     return html`
       <h2>
-        <button aria-expanded=${open}>Hello world!</button>
+        <button
+          aria-expanded=${open}
+          @click=${this._handleClick}
+          type="button"
+        ></button>
       </h2>
-      <div hidden><slot></slot></div>
+      <div hidden>
+        <slot></slot>
+      </div>
     `;
   }
 
-  __validateOpenAttribute() {
-    // Check if an improper string was set on the open attribute
+  firstUpdated() {
+    const button = this.shadowRoot.querySelector('h2 button');
+    const oldHeading = this.querySelector(':first-child');
+    const headingText = oldHeading.textContent;
+    const details = this.shadowRoot.querySelector('div');
+
+    button.textContent = headingText;
+    oldHeading.parentElement.removeChild(oldHeading);
+
+    if (this.open === 'true') {
+      details.removeAttribute('hidden');
+    }
+  }
+
+  _handleClick() {
+    const details = this.shadowRoot.querySelector('div');
+
+    this.setAttribute(
+      'open',
+      this.getAttribute('open') === 'true' ? 'false' : 'true'
+    );
+
+    details.toggleAttribute('hidden');
+  }
+
+  /* Check if an improper string was set on the open attribute */
+  _validateOpenAttribute() {
     if (
       this.getAttribute('open') !== 'true' &&
       this.getAttribute('open') !== 'false'
