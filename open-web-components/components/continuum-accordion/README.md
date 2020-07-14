@@ -2,6 +2,9 @@
 
 This webcomponent follows the [open-wc](https://github.com/open-wc/open-wc) recommendation.
 
+I am making some adjustments to how the demos introduce the modules, but that
+will be explained in the updated README.md.
+
 ## Installation
 ```bash
 npm i continuum-accordion
