@@ -8,6 +8,23 @@ export class ContinuumAccordion extends LitElement {
         padding: 25px;
         color: var(--continuum-accordion-text-color, #000);
       }
+
+      h2 {
+        border: 1px solid #000;
+        font-size: 1.2rem;
+        padding: 0;
+      }
+
+      button {
+        background: none;
+        border: 0;
+        display: block;
+        font-size: inherit;
+        outline: 0;
+        padding: 0.75rem 1rem;
+        text-align: left;
+        width: 100%;
+      }
     `;
   }
 
