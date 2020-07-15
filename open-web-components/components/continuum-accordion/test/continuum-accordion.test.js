@@ -24,7 +24,7 @@ describe('ContinuumAccordion', () => {
   });
 
   it('CLASS: Throws an error on invalid open attribute', async () => {
-    const el = new ContinuumAccordion('falsy', 3);
+    const el = new ContinuumAccordion(...[null, 'falsy']);
 
     expect(() => el._validateOpenAttribute()).to.throw(
       '[ATTRIBUTE]: Open must be a string "true" or "false"'
