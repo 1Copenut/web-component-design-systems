@@ -5,13 +5,15 @@ export class ContinuumAccordion extends LitElement {
     return css`
       :host {
         display: block;
-        padding: 25px;
-        color: var(--continuum-accordion-text-color, #000);
       }
 
       h2 {
-        border: 1px solid #000;
+        border: 1px solid #666;
+        border-radius: 3px;
+        font-family: Helvetica, Arial, sans-serif;
         font-size: 1.2rem;
+        font-weight: 700;
+        margin: 0.5rem 0 1.125rem 0;
         padding: 0;
       }
 
@@ -19,11 +21,19 @@ export class ContinuumAccordion extends LitElement {
         background: none;
         border: 0;
         display: block;
+        font-family: inherit;
         font-size: inherit;
+        font-weight: inherit;
         outline: 0;
-        padding: 0.75rem 1rem;
+        padding: 0.875rem 1rem;
         text-align: left;
         width: 100%;
+      }
+
+      div {
+        border-left: 3px solid #ccc;
+        margin: 0 1rem 2.5rem 1rem;
+        padding: 0.25rem 1rem;
       }
     `;
   }
