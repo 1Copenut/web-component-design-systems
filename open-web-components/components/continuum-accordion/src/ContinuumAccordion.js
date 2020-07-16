@@ -6,12 +6,9 @@ export class ContinuumAccordion extends LitElement {
       :host {
         --color-dark-blue: #0f4780;
         --color-active-blue: #0b335b;
-
         --color-focus-orange: #ffad1f;
-
         --color-cool-gray: #5f6d6b;
         --color-white: #fff;
-
         --measure-three: 3px;
         --measure-six: 6px;
 
@@ -73,8 +70,13 @@ export class ContinuumAccordion extends LitElement {
 
   constructor(level = 2, open = 'false') {
     super();
+
     this.level = level;
     this.open = open;
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
 
     /* Make shadow host a landmark region */
     this.setAttribute('role', 'region');
@@ -104,13 +106,13 @@ export class ContinuumAccordion extends LitElement {
     `;
   }
 
-  /* Progressively enhance user markup in the component */
   firstUpdated() {
     const button = this.shadowRoot.querySelector('h2 button');
     const oldHeading = this.querySelector(':first-child');
     const headingText = oldHeading.textContent;
     const details = this.shadowRoot.querySelector('div');
 
+    /* Progressively enhance user markup in the component */
     button.textContent = headingText;
     oldHeading.parentElement.removeChild(oldHeading);
 

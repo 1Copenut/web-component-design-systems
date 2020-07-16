@@ -17,7 +17,13 @@ describe('ContinuumAccordion', () => {
     expect(el).to.exist;
   });
 
-  it('CLASS: Sets open attribute to "false"', async () => {
+  it('CLASS: Sets the level property to 2 by default', async () => {
+    const el = new ContinuumAccordion();
+
+    expect(el.level).to.equal(2);
+  });
+
+  it('CLASS: Sets open property to "false" by default', async () => {
     const el = new ContinuumAccordion();
 
     expect(el.open).to.equal('false');
@@ -64,7 +70,7 @@ describe('ContinuumAccordion', () => {
     expect(button.getAttribute('aria-expanded')).to.equal('false');
   });
 
-  it('INSTANCE: Allows user to override open attribute', async () => {
+  it('INSTANCE: Allows user to override open property', async () => {
     const el = await fixture(html`
       <continuum-accordion open="true">
         <h2>Hey, this is only a test!</h2>
@@ -73,8 +79,10 @@ describe('ContinuumAccordion', () => {
         </p>
       </continuum-accordion>
     `);
+    const details = el.shadowRoot.querySelector('div');
 
     expect(el.open).to.equal('true');
+    expect(details.getAttribute('hidden')).to.equal(null);
   });
 
   it('INSTANCE: Responds to click events', async () => {
