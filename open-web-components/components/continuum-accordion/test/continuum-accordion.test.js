@@ -17,14 +17,20 @@ describe('ContinuumAccordion', () => {
     expect(el).to.exist;
   });
 
-  it('CLASS: Sets open attribute to "false"', async () => {
+  it('CLASS: Sets the level property to 2 by default', async () => {
+    const el = new ContinuumAccordion();
+
+    expect(el.level).to.equal(2);
+  });
+
+  it('CLASS: Sets open property to "false" by default', async () => {
     const el = new ContinuumAccordion();
 
     expect(el.open).to.equal('false');
   });
 
   it('CLASS: Throws an error on invalid open attribute', async () => {
-    const el = new ContinuumAccordion('falsy', 3);
+    const el = new ContinuumAccordion(...[null, 'falsy']);
 
     expect(() => el._validateOpenAttribute()).to.throw(
       '[ATTRIBUTE]: Open must be a string "true" or "false"'
@@ -73,8 +79,10 @@ describe('ContinuumAccordion', () => {
         </p>
       </continuum-accordion>
     `);
+    const details = el.shadowRoot.querySelector('div');
 
     expect(el.open).to.equal('true');
+    expect(details.getAttribute('hidden')).to.not.exist;
   });
 
   it('INSTANCE: Responds to click events', async () => {
@@ -90,12 +98,31 @@ describe('ContinuumAccordion', () => {
     const details = el.shadowRoot.querySelector('div');
     const listener = oneEvent(button, 'click');
 
-    button.click();
+    expect(button.getAttribute('aria-expanded')).to.equal('false');
+    expect(details.getAttribute('hidden')).to.exist;
 
+    button.click();
     await listener;
     expect(el.getAttribute('open')).to.equal('true');
     expect(button.getAttribute('aria-expanded')).to.equal('true');
     expect(details.getAttribute('hidden')).to.not.exist;
+
+    button.click();
+    await listener;
+    expect(el.getAttribute('open')).to.equal('false');
+  });
+
+  it('INSTANCE: Matches the snapshot', async () => {
+    const el = await fixture(html`
+      <continuum-accordion>
+        <h2>Hey, this is only a test!</h2>
+        <p>
+          If this was an actual event, you should grab water, soda, and chips.
+        </p>
+      </continuum-accordion>
+    `);
+
+    expect(el).shadowDom.to.equalSnapshot();
   });
 
   it('INSTANCE: Passes the a11y audit', async () => {
