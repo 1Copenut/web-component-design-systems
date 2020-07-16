@@ -118,4 +118,17 @@ describe('ContinuumAccordion', () => {
 
     await expect(el).shadowDom.to.be.accessible();
   });
+
+  it('INSTANCE: Matches the snapshot', async () => {
+    const el = await fixture(html`
+      <continuum-accordion>
+        <h2>Hey, this is only a test!</h2>
+        <p>
+          If this was an actual event, you should grab water, soda, and chips.
+        </p>
+      </continuum-accordion>
+    `);
+
+    expect(el).shadowDom.to.equalSnapshot();
+  });
 });
