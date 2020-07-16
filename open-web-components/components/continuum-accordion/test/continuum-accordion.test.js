@@ -70,7 +70,7 @@ describe('ContinuumAccordion', () => {
     expect(button.getAttribute('aria-expanded')).to.equal('false');
   });
 
-  it('INSTANCE: Allows user to override open property', async () => {
+  it('INSTANCE: Allows user to override open attribute', async () => {
     const el = await fixture(html`
       <continuum-accordion open="true">
         <h2>Hey, this is only a test!</h2>
@@ -82,7 +82,7 @@ describe('ContinuumAccordion', () => {
     const details = el.shadowRoot.querySelector('div');
 
     expect(el.open).to.equal('true');
-    expect(details.getAttribute('hidden')).to.equal(null);
+    expect(details.getAttribute('hidden')).to.not.exist;
   });
 
   it('INSTANCE: Responds to click events', async () => {
@@ -98,25 +98,18 @@ describe('ContinuumAccordion', () => {
     const details = el.shadowRoot.querySelector('div');
     const listener = oneEvent(button, 'click');
 
-    button.click();
+    expect(button.getAttribute('aria-expanded')).to.equal('false');
+    expect(details.getAttribute('hidden')).to.exist;
 
+    button.click();
     await listener;
     expect(el.getAttribute('open')).to.equal('true');
     expect(button.getAttribute('aria-expanded')).to.equal('true');
     expect(details.getAttribute('hidden')).to.not.exist;
-  });
 
-  it('INSTANCE: Passes the a11y audit', async () => {
-    const el = await fixture(html`
-      <continuum-accordion>
-        <h2>Hey, this is only a test!</h2>
-        <p>
-          If this was an actual event, you should grab water, soda, and chips.
-        </p>
-      </continuum-accordion>
-    `);
-
-    await expect(el).shadowDom.to.be.accessible();
+    button.click();
+    await listener;
+    expect(el.getAttribute('open')).to.equal('false');
   });
 
   it('INSTANCE: Matches the snapshot', async () => {
@@ -130,5 +123,18 @@ describe('ContinuumAccordion', () => {
     `);
 
     expect(el).shadowDom.to.equalSnapshot();
+  });
+
+  it('INSTANCE: Passes the a11y audit', async () => {
+    const el = await fixture(html`
+      <continuum-accordion>
+        <h2>Hey, this is only a test!</h2>
+        <p>
+          If this was an actual event, you should grab water, soda, and chips.
+        </p>
+      </continuum-accordion>
+    `);
+
+    await expect(el).shadowDom.to.be.accessible();
   });
 });
