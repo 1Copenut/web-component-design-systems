@@ -37,10 +37,14 @@
     "lint-staged": "^11.0.0",
     "minimist": "^1.2.5",
     "prettier": "^2.0.4",
-    "prismjs": "^1.23.0"
+    "prismjs": "^1.23.0",
+    "trim": "^1.0.1",
+    "ua-parser-js": "^0.7.28"
   },
   "resolutions": {
-    "minimist": "^1.2.5"
+    "minimist": "^1.2.5",
+    "trim": "^1.0.0",
+    "ua-parser-js": "^0.7.20"
   },
   "eslintConfig": {
     "extends": [
