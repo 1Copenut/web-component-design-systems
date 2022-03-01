@@ -37,7 +37,7 @@
     "lint-staged": "^11.0.0",
     "minimist": "^1.2.5",
     "prettier": "^2.0.4",
-    "prismjs": "^1.25.0",
+    "prismjs": "^1.27.0",
     "trim": "^1.0.1",
     "ua-parser-js": "^0.7.28"
   },
