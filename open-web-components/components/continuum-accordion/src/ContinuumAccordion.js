@@ -48,7 +48,7 @@ export class ContinuumAccordion extends LitElement {
         color: var(--color-white);
       }
 
-      button:focus {
+      button:focus-visible {
         outline: var(--measure-three) solid var(--color-focus-orange);
         outline-offset: 6px;
       }
@@ -57,6 +57,11 @@ export class ContinuumAccordion extends LitElement {
         border-left: var(--measure-three) solid var(--color-cool-gray);
         margin: 0 1rem 2.5rem 1rem;
         padding: 0.25rem 1rem;
+      }
+
+      slot {
+        font-family: Helvetica, Arial, sans-serif;
+        line-height: 1.5;
       }
     `;
   }
