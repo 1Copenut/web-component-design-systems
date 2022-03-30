@@ -10,4 +10,7 @@ components quickly and accurately. Eventually I will add
 [Typescript](https://typescriptlang.org) to the mix. Once I learn how to write
 it. :)
 
-Adding a test space. To be updated later.
+I have also recently learned about the [Modern Web](https://modern-web.dev/) site. I recommend that one too.
+
+## Testing
+I'm a big believer in testing. I prefer to write them often, and include a11y tests at every level (unit, integration, e2e).
