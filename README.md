@@ -17,6 +17,8 @@ I think this repository will grow into a full-blown design system. I know, it do
 
 * [How to Create an Accessible Design System in 60 Days](https://medium.com/code-and-theory/how-to-create-an-accessible-design-system-in-60-days-42a02e536900)
 * [Design tokens explained (and how to build a design token system)](https://www.contentful.com/blog/design-token-system/)
+* [How to manage your Design Tokens with Style Dictionary](https://didoo.medium.com/how-to-manage-your-design-tokens-with-style-dictionary-98c795b938aa)
+* [Design Tokens using Style-Dictionary & Figma](https://backlight.dev/docs/design-tokens-using-sd-figma)
 
 ## Testing
 I'm a big believer in testing. I prefer to write them often, and include a11y tests at every level (unit, integration, e2e).
