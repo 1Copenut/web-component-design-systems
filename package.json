@@ -1,0 +1,25 @@
+{
+  "name": "web-component-design-systems",
+  "version": "0.1.0",
+  "description": "A space to try out web component libraries to build design systems.",
+  "main": "",
+  "workspaces": [
+    "packages/**/*"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1Copenut/web-component-design-systems.git"
+  },
+  "keywords": [
+    "web components"
+  ],
+  "author": "Trevor Pierce",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/1Copenut/web-component-design-systems/issues"
+  },
+  "homepage": "https://github.com/1Copenut/web-component-design-systems#readme"
+}
