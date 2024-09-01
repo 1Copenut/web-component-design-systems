@@ -22,7 +22,7 @@
     "lint-staged": "^13.2.1",
     "minimist": ">=1.2.6",
     "prettier": "^2.5.1",
-    "socket.io": "^4.5.3",
+    "socket.io": "^4.6.2",
     "trim": "^1.0.1",
     "ua-parser-js": "^1.0.33"
   },
