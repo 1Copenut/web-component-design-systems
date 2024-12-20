@@ -20,5 +20,9 @@ I think this repository will grow into a full-blown design system. I know, it do
 * [How to manage your Design Tokens with Style Dictionary](https://didoo.medium.com/how-to-manage-your-design-tokens-with-style-dictionary-98c795b938aa)
 * [Design Tokens using Style-Dictionary & Figma](https://backlight.dev/docs/design-tokens-using-sd-figma)
 
+### Shadow DOM
+* [Server-first Web Components with DSD, HTMX, and Islands](https://tympanus.net/codrops/2024/08/20/server-first-web-components-with-dsd-htmx-and-islands/)
+* [Delcarative Shadom DOM](https://12daysofweb.dev/2024/declarative-shadow-dom/)
+
 ## Testing
 I'm a big believer in testing. I prefer to write them often, and include a11y tests at every level (unit, integration, e2e).
