@@ -20,6 +20,10 @@ I think this repository will grow into a full-blown design system. I know, it do
 * [How to manage your Design Tokens with Style Dictionary](https://didoo.medium.com/how-to-manage-your-design-tokens-with-style-dictionary-98c795b938aa)
 * [Design Tokens using Style-Dictionary & Figma](https://backlight.dev/docs/design-tokens-using-sd-figma)
 
+**New guides and ideas for 2025:**
+* [BYOF: Build Your Own Framework](https://jschof.dev/posts/2025/2/byo-framework/)
+* [uhtml](https://github.com/WebReflection/uhtml#readme)
+
 ### Shadow DOM
 * [Server-first Web Components with DSD, HTMX, and Islands](https://tympanus.net/codrops/2024/08/20/server-first-web-components-with-dsd-htmx-and-islands/)
 * [Delcarative Shadom DOM](https://12daysofweb.dev/2024/declarative-shadow-dom/)
